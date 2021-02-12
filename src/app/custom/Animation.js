@@ -20,7 +20,7 @@ export default class Animation{
 
         //trackButton
         this._tl.set(selectors.truckBtnBg, {transformOrigin:'50% 50%',});
-        this._tl.to(selectors.truckBtnBg, {scale:1.1, id:'trackBtnScaleUp'})
+        this._tl.to(selectors.truckBtnBg, {scale:1.1, id:'trackBtnScaleUp'});
         this._tl.to(selectors.truckBtnBg, {scale:1, id:'trackBtnScaleDown'});
 
         //containerParts
@@ -40,15 +40,14 @@ export default class Animation{
         this._tl.to(selectors.frontWheelsBack, { opacity: 1, id: 'frontWheelsBack', duration:0.5, delay:-0.5 });
 
         //trackMovement
-        this._tl.to(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' });
-        this._tl.to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' ,id: 'truckMovement' });
+        this._tl.to(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' })
+        .to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' ,id: 'truckMovement' });
 
         //afterTrackMovementButton
         this._tl.to(selectors.shippedLabel, { opacity: 1, duration: 1, id: 'shippedLabel' });
     }
 
     stop(){
-        this.pause = true;
         this._tl.pause();
     }
 

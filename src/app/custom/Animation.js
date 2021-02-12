@@ -8,7 +8,6 @@ export default class Animation{
     }
 
     animation(){
-        // this._tl.seek(0);
         //list
         this._tl.to(selectors.list, {y:-100, duration:0.5, id:'listUp'});
         this._tl.to(selectors.list, {y:0, duration:0.3, id:'listDown'});
@@ -41,7 +40,7 @@ export default class Animation{
 
         //trackMovement
         // this._tl.fromTo(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' }, { x: 500, opacity: 0, duration: 1,ease: 'power.in' });
-        this._tl.to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' });
+        this._tl.to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in', id: 'truckMovement'});
 
         //afterTrackMovementButton
         this._tl.to(selectors.shippedLabel, { opacity: 1, duration: 1, id: 'shippedLabel' });

@@ -4,11 +4,11 @@ import selectors from './selectors';
 export default class Animation{
     constructor(){
         this._tl = gsap.timeline();
-        this.pause = false;
+        this._tl.pause();
     }
 
     animation(){
-        this._tl.seek(0);
+        // this._tl.seek(0);
         //list
         this._tl.to(selectors.list, {y:-100, duration:0.5, id:'listUp'})
         this._tl.to(selectors.list, {y:0, duration:0.3, id:'listDown'});
@@ -39,7 +39,7 @@ export default class Animation{
         this._tl.to(selectors.frontWheelsBack, { opacity: 1, id: 'frontWheelsBack', duration:0.5, delay:-0.5 });
 
         //trackMovement
-        this._tl.to(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' })
+        this._tl.to(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' });
         this._tl.to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' ,id: 'truckMovement' });
 
         //afterTrackMovementButton
@@ -52,13 +52,11 @@ export default class Animation{
     }
 
     play(){
-        if(this.pause == true){
+        if(this._tl.paused){
             this._tl.resume();
-            this.pause = false;
         }
         else{
-            // this._tl.seek(0);
-            this.animation();
+            this.restart();
         }
     }
 
@@ -66,8 +64,7 @@ export default class Animation{
         this._tl.reverse();
     }
     animationHandler(){
-        this._tl.pause();
-        console.log(this._tl.isActive());
+        this.animation();
         selectors.playBtn.addEventListener('click', () => {this.play()});
         selectors.truckBtn.addEventListener('click', () => {this.play()});
         selectors.pauseBtn.addEventListener('click', () => {this.stop()});

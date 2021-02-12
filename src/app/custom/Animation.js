@@ -10,7 +10,7 @@ export default class Animation{
     animation(){
         // this._tl.seek(0);
         //list
-        this._tl.to(selectors.list, {y:-100, duration:0.5, id:'listUp'})
+        this._tl.to(selectors.list, {y:-100, duration:0.5, id:'listUp'});
         this._tl.to(selectors.list, {y:0, duration:0.3, id:'listDown'});
 
         //listItems
@@ -20,8 +20,8 @@ export default class Animation{
 
         //trackButton
         this._tl.set(selectors.truckBtnBg, {transformOrigin:'50% 50%',});
-        this._tl.to(selectors.truckBtnBg, {scale:1.1, id:'trackBtnScaleUp'});
-        this._tl.to(selectors.truckBtnBg, {scale:1, id:'trackBtnScaleDown'});
+        this._tl.to(selectors.truckBtnBg, {scale:1.1, id:'truckBtnScaleUp'});
+        this._tl.to(selectors.truckBtnBg, {scale:1, id:'truckBtnScaleDown'});
 
         //containerParts
         this._tl.to(selectors.containerParts, { opacity: 1, duration: 0, id: 'containerParts' });

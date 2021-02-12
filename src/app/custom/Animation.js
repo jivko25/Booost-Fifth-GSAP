@@ -40,7 +40,8 @@ export default class Animation{
         this._tl.to(selectors.frontWheelsBack, { opacity: 1, id: 'frontWheelsBack', duration:0.5, delay:-0.5 });
 
         //trackMovement
-        this._tl.fromTo(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' }, { x: 500, opacity: 0, duration: 1,ease: 'power.in' });
+        // this._tl.fromTo(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' }, { x: 500, opacity: 0, duration: 1,ease: 'power.in' });
+        this._tl.to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' });
 
         //afterTrackMovementButton
         this._tl.to(selectors.shippedLabel, { opacity: 1, duration: 1, id: 'shippedLabel' });

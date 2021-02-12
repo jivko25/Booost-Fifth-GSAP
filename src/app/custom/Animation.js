@@ -10,7 +10,8 @@ export default class Animation{
     animation(){
         this._tl.seek(0);
         //list
-        this._tl.to(selectors.list, {y:-100, duration:0.5, id:'listUp'}).to(selectors.list, {y:0, duration:0.3, id:'listDown'});
+        this._tl.to(selectors.list, {y:-100, duration:0.5, id:'listUp'})
+        this._tl.to(selectors.list, {y:0, duration:0.3, id:'listDown'});
 
         //listItems
         this._tl.to(selectors.listItems[0], {y:100, opacity:0, duration: 0.3, delay: -0.1, id:'listItem0'});
@@ -38,7 +39,8 @@ export default class Animation{
         this._tl.to(selectors.frontWheelsBack, { opacity: 1, id: 'frontWheelsBack', duration:0.5, delay:-0.5 });
 
         //trackMovement
-        this._tl.to(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' }).to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' ,id: 'truckMovement' });
+        this._tl.to(selectors.truck, { x: -200, duration: 1.5, id: 'truckMovement' })
+        this._tl.to(selectors.truck, { x: 500, opacity: 0, duration: 1,ease: 'power.in' ,id: 'truckMovement' });
 
         //afterTrackMovementButton
         this._tl.to(selectors.shippedLabel, { opacity: 1, duration: 1, id: 'shippedLabel' });
@@ -62,9 +64,10 @@ export default class Animation{
 
     reverse(){
         this._tl.reverse();
-        this._t1.seek(0);
     }
     animationHandler(){
+        this._tl.pause();
+        console.log(this._tl.isActive());
         selectors.playBtn.addEventListener('click', () => {this.play()});
         selectors.truckBtn.addEventListener('click', () => {this.play()});
         selectors.pauseBtn.addEventListener('click', () => {this.stop()});

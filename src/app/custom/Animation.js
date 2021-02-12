@@ -20,7 +20,8 @@ export default class Animation{
 
         //trackButton
         this._tl.set(selectors.truckBtnBg, {transformOrigin:'50% 50%',});
-        this._tl.to(selectors.truckBtnBg, {scale:1.1, id:'trackBtnScaleUp'}).to(selectors.truckBtnBg, {scale:1, id:'trackBtnScaleDown'});
+        this._tl.to(selectors.truckBtnBg, {scale:1.1, id:'trackBtnScaleUp'})
+        this._tl.to(selectors.truckBtnBg, {scale:1, id:'trackBtnScaleDown'});
 
         //containerParts
         this._tl.to(selectors.containerParts, { opacity: 1, duration: 0, id: 'containerParts' });
@@ -52,11 +53,11 @@ export default class Animation{
     }
 
     play(){
-        if(this._tl.paused){
+        if(this._tl.paused == true){
             this._tl.resume();
         }
         else{
-            this.restart();
+            this._tl.restart();
         }
     }
 
